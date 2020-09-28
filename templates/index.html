@@ -1,20 +1,33 @@
 <html>
-
   <head>
     <title>IP CAM</title>
     <style>
-    	img {
-      	display: block;
-      	margin-left: auto;
-      	margin-right: auto;
-    	width: 35%
-    	}
+	img {
+  	display: block;
+  	margin-left: auto;
+  	margin-right: auto;
+	width: 35%
+	}
     </style>
   </head>
-
   <body>
-    <h1 align="center">IP-Cam-DataReader</h1>
-    <img id="bg" class="center" src="{{ url_for('video_feed') }}">
-  </body>
+    <h1 align="center">Video Streaming</h1>
 
+    <h3 align="center">First option</h3>
+    <img id="bg" class="center" src="{{ url_for('video_feed') }}">
+
+    <h3 align="center">Second option</h3>
+    <img id="bg" class="center" src="{{ url_for('video_feed_second') }}">
+
+    <table border="5" align="center">
+      <thead>
+        <th>Oryginal</th>
+        <th>Grayscale</th>
+      </thead>
+        <tr>
+          <td><img id="bg" class="center" src="{{ url_for('video_feed') }}"></td>
+          <td><img id="bg" class="center" src="{{ url_for('video_feed') }}"></td>
+        </tr>
+    </table>
+  </body>
 </html>
