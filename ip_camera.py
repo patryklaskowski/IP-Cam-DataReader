@@ -1,40 +1,43 @@
 # ip_camera.py
-
 import cv2
 
-class VideoCamera(object):
-    def __init__(self, url):
+class Ip_Camera(object):
+    def __init__(self, url, grayscale=False, treshold=False):
         self.url = url
         self.video = cv2.VideoCapture(self.url)
+        self.grayscale = bool(grayscale)
+        self.treshold = bool(treshold)
 
     def __del__(self):
         self.video.release()
 
     def get_frame(self):
         success, image = self.video.read()
-        # image=cv2.resize(image,None,fx=ds_factor,fy=ds_factor,interpolation=cv2.INTER_AREA)
-        # gray=cv2.cvtColor(image,cv2.COLOR_BGR2GRAY)
+
+        if self.grayscale:
+            image=cv2.cvtColor(image,cv2.COLOR_BGR2GRAY)
+        elif self.treshold:
+            image=cv2.cvtColor(image,cv2.COLOR_BGR2GRAY)
+            cret, image = cv2.threshold(image, 120, 255, cv2.THRESH_BINARY)
+        else:
+            image = self.draw_text(image, text=self.url)
+
         ret, jpeg = cv2.imencode('.jpg', image)
         return jpeg.tobytes()
 
-class VideoCamera_second(object):
-    def __init__(self, url):
-        self.url = url
-        # self.video = cv2.VideoCapture(self.url)
+    def draw_text(self, image, text='default'):
+        font = cv2.FONT_HERSHEY_SIMPLEX
+        position = (int(image.shape[1]/10), int(image.shape[0]/2))
+        fontScale = int(0.0025 * image.shape[0])
+        color = (0, 0, 255) #BGR
+        thickness = 2 #px
+        return cv2.putText(image, text, position, font, fontScale, color, thickness, cv2.LINE_AA)
 
-    def __del__(self):
-        # self.video.release()
-        pass
-
-    def get_frame(self):
-        video = cv2.VideoCapture(self.url)
-        success, image = video.read()
-        video.release()
-        # image = cv2.cvtColor(image,cv2.COLOR_BGR2GRAY)
-        # image=cv2.resize(image,None,fx=ds_factor,fy=ds_factor,interpolation=cv2.INTER_AREA)
-        # gray=cv2.cvtColor(image,cv2.COLOR_BGR2GRAY)
-        ret, jpeg = cv2.imencode('.jpg', image)
-        return jpeg.tobytes()
+    def treshold_filter(self, image, tresh=50):
+        image = cv2.cvtColor(image, cv2.COLOR_BGR2GRAY)
+        image[image < tresh] = 255
+        image[image >= tresh] = 0
+        return image
 
 # class IpCam_my(object):
 #
@@ -68,17 +71,3 @@ class VideoCamera_second(object):
 #         img_data = requests.get(self.url).content
 #         arr = np.frombuffer(img_data, np.uint8)
 #         return cv2.imdecode(arr, cv2.IMREAD_COLOR)
-#
-#
-# class IpCam_his(object):
-#
-#     def __init__(self, url):
-#         self.url = url
-#         self.video = cv2.VideoCapture(self.url)
-#
-#     def __del__(self):
-#         self.video.release()
-#
-#     def get_frame(self):
-#         retval, frame = self.video.read()
-#         return frame.tobytes()

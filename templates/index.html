@@ -1,33 +1,42 @@
 <html>
   <head>
+    <!-- <body style="background-color:black;"> -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
     <title>IP CAM</title>
     <style>
 	img {
   	display: block;
   	margin-left: auto;
   	margin-right: auto;
-	width: 35%
+	width: 100%
 	}
     </style>
   </head>
   <body>
-    <h1 align="center">Video Streaming</h1>
+    <div class="p-3 mb-2 bg-dark text-white">
+    <div class='container bg-dark'>
+      <div class='jumbotron jumbotron-fluid bg-dark'>
+        <h1 align="center" class="text-danger">Video Streaming</h1>
 
-    <h3 align="center">First option</h3>
-    <img id="bg" class="center" src="{{ url_for('video_feed') }}">
+        <table class='table table-striped table-dark bg-dark'>
+          <thead align="center" class="thead-dark">
+            <th class="text-danger">Oryginal</th>
+            <th class="text-danger">Grayscale</th>
+            <th class="text-danger">Treshold_Filter</th>
 
-    <h3 align="center">Second option</h3>
-    <img id="bg" class="center" src="{{ url_for('video_feed_second') }}">
-
-    <table border="5" align="center">
-      <thead>
-        <th>Oryginal</th>
-        <th>Grayscale</th>
-      </thead>
-        <tr>
-          <td><img id="bg" class="center" src="{{ url_for('video_feed') }}"></td>
-          <td><img id="bg" class="center" src="{{ url_for('video_feed') }}"></td>
-        </tr>
-    </table>
+          </thead>
+          {% for url in urls_html %}
+          <tr>
+          <td><img id="bg" class="center figure-img img-fluid rounded" src="{{ url_for('video_feed', url=url)}}"></td>
+          <td><img id="bg" class="center figure-img img-fluid rounded" src="{{ url_for('video_feed', url=url, grayscale='true')}}"></td>
+          <td><img id="bg" class="center figure-img img-fluid rounded" src="{{ url_for('video_feed', url=url, treshold='true')}}"></td>
+          </tr>
+          {% endfor %}
+        </table>
+        <br>
+        <p align="center" class="text-secondary">Patryk Jacek Laskowski<p>
+      </div>
+    </div>
+  </div>
   </body>
 </html>
