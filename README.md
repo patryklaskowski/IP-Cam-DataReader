@@ -41,7 +41,7 @@ You are also able to visit this page from other devices in the same local area n
 
 ![Application screenshot](https://github.com/patryklaskowski/IP-Cam-DataReader/blob/master/templates/static/home_page.png)
 
-Once you're done close the app by pressing `Ctrl+c` or `Cmd+c` in terminal.
+Once you're done close the app by pressing `ctrl+c` in terminal.
 
 #### 5. Deactivate virtual environment
 ```
