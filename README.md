@@ -34,7 +34,7 @@ python main.py
 **[NOTE:]**<br>
 > Use flag `-u` or `--url` to add custom video sources<br>
 > e.g. `python main.py --url http://187.157.229.132/mjpg/video.mjpg --url http://162.245.149.145/mjpg/video.mjpg`<br>
-> This will source data from two IP cameras.<br>
+> This example source data from two IP cameras. There is no limits on urls count.
 
 There are many unsecured IP cams to explore [here](https://www.insecam.org/en/byrating/).
 
