@@ -10,16 +10,16 @@
 git clone https://github.com/patryklaskowski/IP-Cam-DataReader.git
 cd IP-Cam-DataReader
 ```
-2. It is reccomended to run virtual environment to prevent version problems.
+#### 2. It is reccomended to run virtual environment to prevent version problems.
 ```
 python3 -m venv env
 source env/bin/activate
 ```
-3. Install required libraries
+#### 3. Install required libraries
 ```
 pip install -r requirements.txt
 ```
-4. Run app
+#### 4. Run app
 ```
 python main.py
 ```
@@ -29,7 +29,7 @@ You are also able to visit this page from other devices in the same local area n
 
 Once you're done close the app by pressing `Ctrl+c` or `Cmd+c` in terminal.
 
-5. Deactivate virtual environment
+#### 5. Deactivate virtual environment
 ```
 deactivate
 ```
