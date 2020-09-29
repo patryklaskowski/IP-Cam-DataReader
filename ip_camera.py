@@ -1,8 +1,10 @@
 # ip_camera.py
 import cv2
+import time
 
 class Ip_Camera(object):
     def __init__(self, url, grayscale=False, treshold=False):
+        time.sleep(0.1)
         self.url = url
         self.video = cv2.VideoCapture(self.url)
         self.grayscale = bool(grayscale)
@@ -13,6 +15,7 @@ class Ip_Camera(object):
 
     def get_frame(self):
         success, image = self.video.read()
+        assert success, 'Cant get image'
 
         if self.grayscale:
             image=cv2.cvtColor(image,cv2.COLOR_BGR2GRAY)
@@ -32,12 +35,6 @@ class Ip_Camera(object):
         color = (0, 0, 255) #BGR
         thickness = 2 #px
         return cv2.putText(image, text, position, font, fontScale, color, thickness, cv2.LINE_AA)
-
-    def treshold_filter(self, image, tresh=50):
-        image = cv2.cvtColor(image, cv2.COLOR_BGR2GRAY)
-        image[image < tresh] = 255
-        image[image >= tresh] = 0
-        return image
 
 # class IpCam_my(object):
 #
