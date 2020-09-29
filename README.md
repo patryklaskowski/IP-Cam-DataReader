@@ -5,7 +5,7 @@
 [![made-with-OpenCV](https://img.shields.io/badge/Made%20with-OpenCV-1f425f.svg)](https://docs.opencv.org/)
 
 
-1. Download github repository
+#### 1. Download github repository
 ```
 git clone https://github.com/patryklaskowski/IP-Cam-DataReader.git
 cd IP-Cam-DataReader
