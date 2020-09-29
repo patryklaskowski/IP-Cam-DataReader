@@ -36,6 +36,8 @@ python main.py
 > e.g. `python main.py --url http://187.157.229.132/mjpg/video.mjpg --url http://162.245.149.145/mjpg/video.mjpg`<br>
 > This will source data from two IP cameras.<br>
 
+There are many unsecured IP cams to explore [here](https://www.insecam.org/en/byrating/).
+
 That's it. App should be now up and running on **http://0.0.0.0:5000/**.
 You are also able to visit this page from other devices in the same local area network.
 
@@ -49,3 +51,7 @@ deactivate
 ```
 
 ---
+### TODO:
+- [x] support .mjpg file type
+- [ ] support .jpg file type
+- [ ] add modeule that create full url link to video just by providing IP and PORT number. [This database might help](https://www.ispyconnect.com/sources.aspx).
