@@ -6,7 +6,7 @@
 
 ---
 
-Simple page web application that live stream video from multiple IP cameras.
+Web page application that live stream video from multiple IP cameras.
 With little customization application of any video filter or machine learning algorithm should be easy.
 
 
