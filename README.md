@@ -24,10 +24,11 @@ pip install -r requirements.txt
 python main.py
 ```
 
-That's it. App should be now up and running on **http://0.0.0.0:5000/**
+That's it. App should be now up and running on **http://0.0.0.0:5000/**.
 You are also able to visit this page from other devices in the same local area network.
 
 Once you're done close the app by pressing `Ctrl+c` or `Cmd+c` in terminal.
+
 5. Deactivate virtual environment
 ```
 deactivate
