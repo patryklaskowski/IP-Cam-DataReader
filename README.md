@@ -31,7 +31,7 @@ python main.py
 
 ![Terminal screenshot](https://github.com/patryklaskowski/IP-Cam-DataReader/blob/master/templates/static/terminal.png)
 
-> [NOTE:]<br>
+**[NOTE:]**<br>
 > Use flag `-u` or `--url` to add custom video sources<br>
 > e.g. `python main.py --url http://187.157.229.132/mjpg/video.mjpg --url http://162.245.149.145/mjpg/video.mjpg`<br>
 > This will source data from two IP cameras.<br>
