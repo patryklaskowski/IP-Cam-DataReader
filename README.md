@@ -17,7 +17,7 @@ cd IP-Cam-DataReader
 ```
 #### 2. It is reccomended to run virtual environment to prevent version problems.
 ```
-python3 -m venv env
+python3.7 -m venv env
 source env/bin/activate
 ```
 #### 3. Install required libraries
