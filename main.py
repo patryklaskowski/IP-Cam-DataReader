@@ -3,7 +3,7 @@ from flask import Flask, render_template, Response, url_for, request
 from os import path
 import sys
 import argparse
-
+import time
 
 basedir = path.abspath(path.dirname(__file__))
 
@@ -37,7 +37,8 @@ def video():
     url = request.args.get('url')
     grayscale = bool(request.args.get('grayscale'))
     treshold = bool(request.args.get('treshold'))
-
+    time.sleep(1)
+    print('Wait')
     return Response(frame_generator(Ip_Camera(url, grayscale=grayscale, treshold=treshold)),
                     mimetype='multipart/x-mixed-replace; boundary=frame')
 
