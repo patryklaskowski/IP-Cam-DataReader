@@ -13,6 +13,9 @@ parser.add_argument('-u', '--url', action='append', default=defaults)#required=T
 args = vars(parser.parse_args())
 urls_flag = args['url']
 
+if len(urls_flag) > len(defaults):
+	urls_flag = urls_flag[2:]
+
 # http://213.193.89.202/mjpg/video.mjpg
 # http://187.157.229.132/mjpg/video.mjpg
 # 'http://162.245.149.145/mjpg/video.mjpg',

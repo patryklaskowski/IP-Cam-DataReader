@@ -5,7 +5,7 @@ import time
 class Ip_Camera(object):
     def __init__(self, url, grayscale=False, treshold=False):
         time.sleep(0.1)
-        self.url = url
+        self.url = int(url) if len(url) == 1 else url
         self.video = cv2.VideoCapture(self.url)
         self.grayscale = bool(grayscale)
         self.treshold = bool(treshold)
@@ -23,7 +23,8 @@ class Ip_Camera(object):
             image=cv2.cvtColor(image,cv2.COLOR_BGR2GRAY)
             cret, image = cv2.threshold(image, 120, 255, cv2.THRESH_BINARY)
         else:
-            image = self.draw_text(image, text=self.url)
+            # image = self.draw_text(image, text=self.url)
+            pass
 
         ret, jpeg = cv2.imencode('.jpg', image)
         return jpeg.tobytes()
